@@ -1,0 +1,12 @@
+{
+  "name": "sales-operations-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependency-free static sales operations portfolio demo using entirely fictional data.",
+  "scripts": {
+    "test": "node --test tests/metrics.test.cjs tests/interface.test.cjs",
+    "check": "node --check assets/data.js && node --check assets/metrics.js && node --check assets/app.js && node --test tests/metrics.test.cjs tests/interface.test.cjs",
+    "test:ui": "node tests/browser.test.cjs"
+  },
+  "engines": { "node": ">=20" }
+}

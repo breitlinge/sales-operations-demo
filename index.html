@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A synthetic-data sales operations portfolio demo: pipeline visibility, follow-up discipline and activity reporting. No live integrations.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#102b2b">
+  <title>Sales Operations Demo | Edmund Breitling</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/data.js" defer></script>
+  <script src="assets/metrics.js" defer></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to dashboard</a>
+<aside class="sidebar">
+  <a href="#overview" class="brand"><span class="brand-mark" aria-hidden="true">S<span></span></span><span>Sales<br><strong>Operations</strong></span></a>
+  <p class="rail-label">PORTFOLIO DEMO</p>
+  <nav aria-label="Main navigation">
+    <a href="#overview"><span aria-hidden="true">◫</span> Overview</a>
+    <a href="#pipeline"><span aria-hidden="true">▥</span> Pipeline</a>
+    <a href="#activity"><span aria-hidden="true">↗</span> Activity</a>
+    <a href="#about"><span aria-hidden="true">◎</span> Project notes</a>
+  </nav>
+  <div class="rail-note"><span class="dot"></span> Built for demonstration<p>Fictional accounts.<br>No live systems connected.</p></div>
+  <div class="author">Edmund Breitling<small>Business · Partnerships · Operations</small></div>
+</aside>
+<main id="main" tabindex="-1">
+  <header class="topbar"><span>WORKSPACE / <b>SALES OPERATIONS</b></span><span class="demo-pill">Synthetic data only</span></header>
+  <div class="content">
+    <section id="overview" aria-labelledby="page-title">
+      <div class="page-heading"><div><p class="eyebrow">FROM PIPELINE TO NEXT ACTION</p><h1 id="page-title">A clearer view of growth.</h1><p class="lede">One workspace for pipeline, follow-up and sales activity.</p></div><button id="reset" class="button secondary">Reset demo</button></div>
+      <div class="demo-banner"><b>Explore safely.</b> Every account, owner, activity and dollar amount is fictional. Edits last until you refresh. <span>Demo date: November 5, 2026</span></div>
+      <form id="filters" class="filters" role="search" aria-label="Filter opportunities">
+        <label class="search-label">Search accounts &amp; opportunities<input id="search" type="search" placeholder="Search accounts, industries, sources…" autocomplete="off"></label>
+        <label>Owner<select id="owner"><option value="all">All owners</option><option>Avery</option><option>Jordan</option><option>Morgan</option></select></label>
+        <label>Stage<select id="stage"><option value="all">All stages</option><option>Discovery</option><option>Qualified</option><option>Proposal</option><option>Negotiation</option><option>Won</option><option>Lost</option></select></label>
+        <label>Expected close<select id="period"><option value="all">All demo dates</option><option value="week">This demo week</option><option value="month">This demo month</option><option value="quarter">This demo quarter</option><option value="year">This demo year</option></select></label>
+        <button type="button" id="clear" class="text-button">Clear filters</button>
+      </form>
+      <p class="filter-note" id="filter-summary" aria-live="polite"></p>
+      <div class="metrics" id="metrics"></div>
+      <div class="overview-grid">
+        <section class="panel" aria-labelledby="stages-title"><div class="panel-heading"><div><p class="eyebrow">PIPELINE MIX</p><h2 id="stages-title">Where opportunities stand</h2></div><span class="muted">Open value · USD</span></div><div id="stage-chart" class="stage-chart"></div><p class="caption">Stage probability is illustrative, not a validated forecast.</p></section>
+        <section class="panel priority-panel" aria-labelledby="priority-title"><div class="panel-heading"><div><p class="eyebrow">MAKE THE NEXT MOVE</p><h2 id="priority-title">Follow-up priorities</h2></div><span class="count" id="priority-count"></span></div><div id="priorities"></div></section>
+      </div>
+    </section>
+    <section id="pipeline" class="panel pipeline-panel" aria-labelledby="pipeline-title">
+      <div class="panel-heading"><div><p class="eyebrow">THE WORKING VIEW</p><h2 id="pipeline-title">Opportunity pipeline</h2></div><div class="toolbar"><div class="segmented" role="group" aria-label="Pipeline view"><button id="table-view" aria-pressed="true">List</button><button id="card-view" aria-pressed="false">Cards</button></div><button id="export" class="button secondary">Export demo CSV</button></div></div>
+      <div id="pipeline-content"></div>
+    </section>
+    <section id="activity" class="panel" aria-labelledby="activity-title"><div class="panel-heading"><div><p class="eyebrow">VISIBLE EXECUTION</p><h2 id="activity-title">Recent activity</h2></div><label class="compact-label">Activity date<select id="activity-period"><option value="all">All demo dates</option><option value="week">This demo week</option><option value="month">This demo month</option><option value="quarter">This demo quarter</option><option value="year">This demo year</option></select></label></div><p class="caption">Activities for the opportunities in the current filters. Activity date uses its own filter.</p><div id="activity-feed"></div></section>
+    <section id="about" class="about" aria-labelledby="about-title"><div><p class="eyebrow">THE BUSINESS IDEA</p><h2 id="about-title">Useful tools start with useful questions.</h2><p>Which deals need attention? What is the next step? Is activity moving the right opportunities forward?</p></div><div><h3>What this prototype demonstrates</h3><p>Business requirements translated into a simple operating view, with clear definitions, actionable follow-ups and safe demo data.</p><h3>How it was built</h3><p>A new, AI-assisted implementation in HTML, CSS and JavaScript. No production code or business data was copied. The README documents calculations, checks and limitations.</p><h3>Prototype boundaries</h3><p>No email sending, CRM connection, authentication, backend or durable storage. No business results are claimed. Do not enter real customer information.</p></div></section>
+    <footer>Portfolio demonstration for Edmund Breitling <span>All figures are invented. All amounts are USD.</span></footer>
+  </div>
+</main>
+<dialog id="detail" aria-labelledby="detail-title"><form id="detail-form"><div class="dialog-heading"><div><p class="eyebrow" id="detail-account"></p><h2 id="detail-title"></h2></div><button class="icon-button" type="button" id="close-detail" aria-label="Close opportunity">×</button></div><p class="dialog-notice">Demo edits only. Changes disappear on refresh. Do not enter private information.</p><div id="detail-summary" class="detail-summary"></div><label>Stage<select id="detail-stage"></select></label><label>Next step<input id="detail-next" maxlength="160" placeholder="Describe a fictional next action"></label><label>Next step due<input id="detail-due" type="date" min="2020-01-01" max="2099-12-31"></label><p class="caption">Open opportunities need both a next step and a due date, or neither. Closed opportunities clear both.</p><p id="detail-error" class="error" role="alert"></p><div class="dialog-actions"><button type="button" class="button secondary" id="cancel-detail">Cancel</button><button class="button primary" type="submit">Save demo changes</button></div></form></dialog>
+<dialog id="reset-dialog" aria-labelledby="reset-title"><h2 id="reset-title">Reset the demo?</h2><p>This restores the fictional sample data and clears your temporary edits and filters.</p><div class="dialog-actions"><button id="cancel-reset" class="button secondary">Keep exploring</button><button id="confirm-reset" class="button primary">Reset demo data</button></div></dialog>
+<div id="status" class="toast" role="status" aria-live="polite"></div>
+<noscript><p class="noscript">This interactive demonstration requires JavaScript. No external services are contacted.</p></noscript>
+</body>
+</html>
